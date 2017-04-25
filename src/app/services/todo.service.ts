@@ -8,8 +8,8 @@ export class TodoService {
 	todos: TodoModel[];
 
   constructor() { 
-    if (localStorage.length) {
-      let todosPers = localStorage.getItem('todos-roman');
+    if (localStorage.length && localStorage.getItem('todos-romansilence')) {
+      let todosPers = localStorage.getItem('todos-romansilence');
       this.todos = JSON.parse(todosPers).map((item) => {
                         let todo = new TodoModel(item.title);
                         todo.completed = item.completed;
@@ -88,7 +88,7 @@ export class TodoService {
 
 
   toLocalStorage() {
-    localStorage.setItem('todos-roman', JSON.stringify(this.todos));
+    localStorage.setItem('todos-romansilence', JSON.stringify(this.todos));
   }
 
   stateToLocal(key: string, state: string) {
