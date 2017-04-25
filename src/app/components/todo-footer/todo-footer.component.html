@@ -1,0 +1,18 @@
+<footer class="footer" *ngIf="getTodosCount()">
+	<span class="todo-count"><strong>{{ getRemainingTodosCount() }}</strong> item{{ getRemainingTodosCount() == 1 ? '' : 's' }} left</span>
+	<ul class="filters">
+		<li>
+			<a (click)="openDialog($event)" href="">Share</a>
+		</li>
+		<li>
+			<a [routerLink]="['']" [class.selected]="currentState == ''">All</a>
+		</li>
+		<li>
+			<a [routerLink]="['', 'active']" [class.selected]="currentState == 'active'">Active</a>
+		</li>
+		<li>
+			<a [routerLink]="['', 'completed']" [class.selected]="currentState == 'completed'">Completed</a>
+		</li>
+	</ul>
+	<button class="clear-completed" *ngIf="getCompletedTodosCount()" (click)="clearCompleted()">Clear completed</button>
+</footer>

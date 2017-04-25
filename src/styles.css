@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~https://fonts.googleapis.com/icon?family=Roboto';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+/* template css imports for dist */
+@import '~todomvc-common/base.css';
+@import '~todomvc-app-css/index.css';
+body {
+	font-family: Roboto;
+}

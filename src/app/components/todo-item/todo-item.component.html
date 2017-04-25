@@ -1,0 +1,8 @@
+<li [class.completed]="todo.completed" [class.editing]="editing" >
+	<div class="view">
+		<input class="toggle" type="checkbox" [checked]="todo.completed" (click)="onToggle()">
+		<label (dblclick)="onEdit()">{{ todo.title }}</label>
+		<button class="destroy" (click)="onDelete()"></button>
+	</div>
+	<input class="edit" name="newTitle" *ngIf="editing" [value]="todo.title" #newTitle (keyup.enter)="stopEditing(newTitle.value)" (keyup.escape)="cancelEditing()" (blur)="stopEditing(newTitle.value)" (mouseover)="getFocus($event)">
+</li>
